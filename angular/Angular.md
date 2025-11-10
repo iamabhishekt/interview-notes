@@ -495,7 +495,7 @@ The NgModule decorator has three options
 What is Interpolation?
 ------------------
 
-Interpolation is a special syntax that Angular converts into property binding. It is a convenient alternative to property binding. It is represented by double curly braces(`{{ }}`). The text between the braces is often the name of a component property. Angular replaces that name with the string value of the corresponding component property.
+Interpolation is a special syntax that Angular converts into property binding. It is a convenient alternative to property binding. It is represented by double curly braces(`{% raw %}{{ }}{% endraw %}`). The text between the braces is often the name of a component property. Angular replaces that name with the string value of the corresponding component property.
 
 ```html
 <h3>
