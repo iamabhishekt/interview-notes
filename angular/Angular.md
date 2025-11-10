@@ -474,14 +474,14 @@ Angular Module
 In Angular, a module is a mechanism to group components, directives, pipes and services that are related, in such a way that can be combined with other modules to create an application.
 
 ```typescript
-import { NgModule }      from '@angular/core';
+import { NgModule }      from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { AppComponent }  from './app.component';
+import { AppComponent }  from './app.component';
 
 @NgModule ({
-    imports:      [ BrowserModule ],
-    declarations: [ AppComponent ],
-    bootstrap:    [ AppComponent ]
+    imports:      [ BrowserModule ],
+    declarations: [ AppComponent ],
+    bootstrap:    [ AppComponent ]
 })
 export class AppModule { }
 ```
