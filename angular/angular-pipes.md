@@ -17,15 +17,17 @@ Syntax to use Pipes in Angular Application:
 
 
 A pipe takes in data as input and transforms it to a desired output. For example, let us take a pipe to transform a component birthday property into a human-friendly date using **date** pipe.
+
+{% raw %}
 ```typescript
 import { Component } from '@angular/core';
 
 @Component({
-  selector: 'app-birthday',
-  template: `<p>Birthday is {{ birthday | date }}</p>`
+  selector: 'app-birthday',
+  template: `<p>Birthday is {{ birthday | date }}</p>`
 })
 export class BirthdayComponent {
-  birthday = new Date(2002, 6, 18); // June 18, 2002
+  birthday = new Date(2002, 6, 18); // June 18, 2002
 }
 ```
 
@@ -59,26 +61,27 @@ Angular provides built-in pipes for typical data transformations, including tran
 For example,
 ```html
 <table border="1">
-    <thead>
-        <tr>
-            <th>Student ID</th>
-            <th>Name</th>
-            <th>DOB</th>
-            <th>Gender</th>
-            <th>CourseFee</th>            
-        </tr>
-    </thead>
-    <tbody>
-        <tr *ngFor='let student of students'>
-            <td>{{student.ID | uppercase}}</td>
-            <td>{{student.Name | titlecase}}</td>
-            <td>{{student.DOB | date:'dd/MM/yyyy'}}</td>
-            <td>{{student.Gender | lowercase}}</td>
-            <td>{{student.CourseFee | currency:'USD':true}}</td>
-        </tr>
-    </tbody>
+    <thead>
+        <tr>
+            <th>Student ID</th>
+            <th>Name</th>
+            <th>DOB</th>
+            <th>Gender</th>
+            <th>CourseFee</th>            
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor='let student of students'>
+            <td>{{student.ID | uppercase}}</td>
+            <td>{{student.Name | titlecase}}</td>
+      _       <td>{{student.DOB | date:'dd/MM/yyyy'}}</td>
+            <td>{{student.Gender | lowercase}}</td>
+            <td>{{student.CourseFee | currency:'USD':true}}</td>
+        </tr>
+    </tbody>
 </table>
 ```
+{% endraw %}
 
 Output:
 
