@@ -30,6 +30,7 @@ export class BirthdayComponent {
   birthday = new Date(2002, 6, 18); // June 18, 2002
 }
 ```
+{% endraw %}
 
 ## Types of Pipes in Angular: 
 
@@ -59,6 +60,8 @@ Angular provides built-in pipes for typical data transformations, including tran
 [PercentPipe](https://angular.io/api/common/PercentPipe): Transforms a number to a percentage string, formatted according to locale rules.
 
 For example,
+
+{% raw %}
 ```html
 <table border="1">
     <thead>
@@ -93,6 +96,8 @@ To create a custom pipe, create a new ts file and use the code according to the 
 
 
 component.ts file:
+
+{% raw %}
 ```typescript
 import {Pipe, PipeTransform} from '@angular/core';  
 @Pipe ({  
@@ -104,11 +109,15 @@ return Math.sqrt(val);
 }  
 }
 ```
+{% endraw %}
+
 Now, it's turn to make changes in the app.module.ts. Create a class named as SqrtPipe. This class will implement the PipeTransform. The transform method defined in the class will take argument as the number and will return the number after taking the square root.
 
 As, we have created a new file so, we need to add the same in app.module.ts.
 
 Module.ts file:
+
+{% raw %}
 ```typescript
 import { BrowserModule } from '@angular/platform-browser';  
 import { NgModule } from '@angular/core';  
@@ -131,15 +140,23 @@ bootstrap: [AppComponent]
 })  
 export class AppModule { }
 ```
+{% endraw %}
+
 Now, use sqrt pipe in component.html file.
 
 component.html file:
+
+{% raw %}
 ```html
 <h1>Example of Custom Pipe</h1>  
 <h2>Square root of 625 is: {{625 | sqrt}}</h2><br/>  
 <h2>Square root of 169 is: {{169 | sqrt}}</h2>  
 ```
+{% endraw %}
+
 Output:
+
+{% raw %}
 ```html
 Example of Custom Pipe
 
@@ -148,12 +165,14 @@ Square root of 625 is: {{625 | sqrt}}
 Square root of 169 is: {{169 | sqrt}}
 
 ```
+{% endraw %}
 
 Parameterized Pipe
 -----------------
 
 A pipe can accept any number of optional parameters to fine-tune its output. The parameterized pipe can be created by declaring the pipe name with a colon (` : `) and then the parameter value. If the pipe accepts multiple parameters, separate the values with colons. Lets take a birthday example with a particular format(dd/mm/yyyy)
 
+{% raw %}
 ```typescript
 import { Component } from '@angular/core';
 
@@ -165,6 +184,7 @@ export class BirthdayComponent {
   birthday = new Date(2002, 6, 18);
 }
 ```
+{% endraw %}
 
 *Note: The parameter value can be any valid template expression, such as a string literal or a component property.*
 
@@ -173,21 +193,33 @@ Custom Pipe
 
 A pipe is a class decorated with pipe metadata `@Pipe()` decorator, which you import from the core Angular library
 
+{% raw %}
 ```typescript
 @Pipe({name: 'myCustomPipe'})
 ```
+{% endraw %}
+
 The pipe class implements the **PipeTransform()** interface transform method that accepts an input value followed by optional parameters and returns the transformed value.
 
+{% raw %}
 ```typescript
 interface PipeTransform {
   transform(value: any, ...args: any[]): any
 }
 ```
+{% endraw %}
+
 The `@Pipe()` decorator allows to define the pipe name that you'll use within template expressions. It must be a valid JavaScript identifier.
+
+{% raw %}
 ```typescript
 template: `{{someInputValue | myCustomPipe: someOtherValue}}`
 ```
+{% endraw %}
+
 Example:
+
+{% raw %}
 ```typescript
 import { Pipe, PipeTransform } from '@angular/core';
 
@@ -198,13 +230,18 @@ export class FileSizePipe implements PipeTransform {
   }
 }
 ```
+{% endraw %}
+
 Now you can use the above pipe in template expression as below,
+
+{% raw %}
 ```typescript
   template: `
     <h2>Find the size of a file</h2>
     <p>Size: {{288966 | customFileSizePipe: 'GB'}}</p>
   `
 ```
+{% endraw %}
 
 Pure vs Impure Pipe
 ------------------
@@ -214,6 +251,7 @@ A pure pipe is only called when Angular detects a change in the value or the par
 **impure-pipe** works for every change in the component  
 **pure-pipe** works only when the component is loaded.
 
+{% raw %}
 ```typescript
 @Pipe({
   name: 'sort',
@@ -226,11 +264,13 @@ export class myPipe implements PipeTransform {
   }
 }
 ```
+{% endraw %}
 
+{% raw %}
 ```html
 <div> {{ arrayOfElements | sort }}<div>
 ```
-
+{% endraw %}
 
 
 For more information:
